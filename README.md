@@ -1,6 +1,2 @@
-BackEnd
-npm start
-
-FrontEnd 
-cd frontend
+npm install
 npm start
