@@ -1,0 +1,27 @@
+.article__section {
+    display: flex;
+    padding:0 90px 80px 90px;
+  }
+
+  .articles__section a {
+    text-decoration: none;
+  }
+
+  .articles__section {
+    display: flex;
+    padding: 0 90px 80px 90px;
+  }
+
+  .services h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .services p {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .culture{
+    padding-top: 20px;
+    color: #EDF0F2;
+    text-align: center;
+  }
