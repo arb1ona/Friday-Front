@@ -1,64 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
-import { listProducts } from '../actions/productActions';
-import Articles from './Articles'
-import Rating from '../components/Rating';
+import { useSelector, useDispatch } from "react-redux";
+import { listProducts } from "../actions/productActions";
+import Articles from "./Articles";
+import Rating from "../components/Rating";
 import BedRoom from "../assests/BedRooms.png";
 import floorSpace from "../assests/floorSpace.png";
 import guests from "../assests/guests.png";
-import Bathrooms from "../assests/Bathrooms.png"
+import Bathrooms from "../assests/Bathrooms.png";
 import star from "../assests/star.png";
-import FooterScreen from './FooterScreen';
-import AutoPlay from './AutoPlay';
+import FooterScreen from "./FooterScreen";
+import AutoPlay from "./AutoPlay";
 // import AutoPlay from './AutoPlay';
 
-
-
-
 function HomeScreen(props) {
-    const [searchKeyword, setSearchKeyword] = useState('');
-    const [sortOrder, setSortOrder] = useState('');
-    const category = props.match.params.id ? props.match.params.id : '';
-    const productList = useSelector((state) => state.productList);
-    const { products, loading, error } = productList;
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(listProducts(category));
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
+  const category = props.match.params.id ? props.match.params.id : "";
+  const productList = useSelector((state) => state.productList);
+  const { products, loading, error } = productList;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(listProducts(category));
 
-        return () => {
-            //
-        };
-    }, [category]);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(listProducts(category, searchKeyword, sortOrder));
+    return () => {
+      //
     };
-    const sortHandler = (e) => {
-        setSortOrder(e.target.value);
-        dispatch(listProducts(category, searchKeyword, sortOrder));
-    };
+  }, [category]);
 
-    return (
-        <>
-            <div style={{
-                backgroundImage: `url(${require("./hero1.jpg")})`, backgroundPosition: 'center',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                width: '100vw',
-                height: '650px',
-                zIndex: '5000'
-            }}></div>
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(listProducts(category, searchKeyword, sortOrder));
+  };
+  const sortHandler = (e) => {
+    setSortOrder(e.target.value);
+    dispatch(listProducts(category, searchKeyword, sortOrder));
+  };
 
-            <Articles />
-            {/* <AutoPlay /> */}
-            <FooterScreen />
-            {/* <AutoPlay /> */}
+  return (
+    <>
+      <div
+        style={{
+          backgroundImage: `url(${require("./hero1.jpg")})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          height: "650px",
+          zIndex: "5000",
+        }}
+      ></div>
 
+      <Articles />
+      {/* <AutoPlay /> */}
+      {/* <FooterScreen /> */}
+      {/* <AutoPlay /> */}
 
-            {/* {category && <h2>{category}</h2>}
+      {/* {category && <h2>{category}</h2>}
 
             {
                 loading ? (
@@ -113,7 +112,7 @@ function HomeScreen(props) {
                             </ul>
                         )
             } */}
-        </>
-    );
+    </>
+  );
 }
 export default HomeScreen;
